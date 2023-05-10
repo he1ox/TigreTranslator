@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TranslatorGUI {
+    private static boolean isSpanishSelected = false;
+    private static boolean isEnglishSelected = false;
     public static void main(String[] args) {
         JFrame frame = new JFrame("Simple Translator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -44,16 +46,36 @@ public class TranslatorGUI {
         speakButton.setBounds(400, 270, 100, 25);
         panel.add(speakButton);
 
+        JToggleButton languageSpanish = new JToggleButton("Español", false);
+        languageSpanish.setBounds(10, 270, 100, 25);
+        panel.add(languageSpanish);
+
+        JToggleButton languageEnglish = new JToggleButton("English", false);
+        languageEnglish.setBounds(120, 270, 100, 25);
+        panel.add(languageEnglish);
+
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(languageSpanish);
+        buttonGroup.add(languageEnglish);
+
 
         Translator translator = new Translator();
 
         translateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String inputText = inputTextArea.getText();
-                boolean fromEnglishToSpanish = true; // Cambie este valor según el idioma de entrada deseado
-                String translatedText = translator.translate(inputText, fromEnglishToSpanish);
-                outputTextArea.setText(translatedText);
+                String inputText = inputTextArea.getText().toLowerCase();
+                if(isEnglishSelected){
+                    boolean fromEnglishToSpanish = true; // Cambie este valor según el idioma de entrada deseado
+                    String translatedText = translator.translate(inputText, fromEnglishToSpanish);
+                    outputTextArea.setText(translatedText);
+                }
+                else if (isSpanishSelected){
+                    boolean fromEnglishToSpanish = false; // Cambie este valor según el idioma de entrada deseado
+                    String translatedText = translator.translate(inputText, fromEnglishToSpanish);
+                    outputTextArea.setText(translatedText);
+                }
+
             }
         });
         speakButton.addActionListener(new ActionListener() {
@@ -68,6 +90,28 @@ public class TranslatorGUI {
             }
         });
 
+
+        languageSpanish.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (languageSpanish.isSelected()) {
+                    isSpanishSelected = true;
+                    isEnglishSelected = false;
+                } else {
+                    isSpanishSelected = false;
+                }
+            }
+        });
+
+        languageEnglish.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (languageEnglish.isSelected()) {
+                    isEnglishSelected = true;
+                    isSpanishSelected = false;
+                } else {
+                    isEnglishSelected = false;
+                }
+            }
+        });
 
 
     }
