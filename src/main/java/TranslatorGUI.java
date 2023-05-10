@@ -51,7 +51,7 @@ public class TranslatorGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String inputText = inputTextArea.getText();
-                boolean fromEnglishToSpanish = false; // Cambie este valor según el idioma de entrada deseado
+                boolean fromEnglishToSpanish = true; // Cambie este valor según el idioma de entrada deseado
                 String translatedText = translator.translate(inputText, fromEnglishToSpanish);
                 outputTextArea.setText(translatedText);
             }
