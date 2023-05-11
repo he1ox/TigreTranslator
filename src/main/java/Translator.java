@@ -9,9 +9,7 @@ public class Translator {
     private SymbolTable symbolTable;
     private ErrorTable errorTable;
     private Map<String,String> alltokens;
-    private Map<String,String> lexicalErr;
-    private Map<String,String> syntaxErr;
-    private Map<String,String> semanticErr;
+    private Map<String,String> allErrors;
 
     public Translator() {
         this.symbolTable = new SymbolTable();
@@ -24,52 +22,61 @@ public class Translator {
         ParseTreeWalker walker = new ParseTreeWalker();
         String translatedText;
 
+
         if (fromEnglishToSpanish) {
+            // Lex para traduccion
+            EnglishLexer lex = new EnglishLexer(CharStreams.fromString(input));
+            CommonTokenStream token2 = new CommonTokenStream(lex);
+            EnglishParser parser = new EnglishParser(token2);
+            // Lex para errores
             lexer = new EnglishLexer(CharStreams.fromString(input));
-            CommonTokenStream tokens = new CommonTokenStream(lexer);
-            EnglishParser parser = new EnglishParser(tokens);
+            CommonTokenStream token = new CommonTokenStream(lexer);
 
             // Captura de errores
             CaptureErrors errorListener = new CaptureErrors();
-            lexer.removeErrorListeners();
-            lexer.addErrorListener(errorListener);
+            lex.removeErrorListeners();
+            lex.addErrorListener(errorListener);
             parser.removeErrorListeners();
             parser.addErrorListener(errorListener);
-            lexicalErr = errorListener.getLexicalErrors();
-            syntaxErr = errorListener.getSyntaxErrors();
-            semanticErr = errorListener.getSemanticErrors();
+            // Elimina errores
+            lexer.removeErrorListeners();
 
             // Captura de Tokens
             TokenTable tokenTable = new TokenTable();
-            tokenTable.tokensMapEnglish(tokens, parser);
+            tokenTable.tokensMapEnglish(token, parser);
             alltokens = tokenTable.getAllTokens();
+            allErrors = errorListener.getAllErrors();
 
             parseTree = parser.sentence();
-
             // Utilizar un ParseTreeWalker para recorrer el árbol de análisis
             TranslationListener translationListener = new TranslationListener(symbolTable);
             walker.walk(translationListener, parseTree);
             translatedText = translationListener.getTranslatedText();
-
         } else {
+            // Lex para Traduccion
+            SpanishLexer lex = new SpanishLexer(CharStreams.fromString(input));
+            CommonTokenStream token = new CommonTokenStream(lex);
+            SpanishParser parser = new SpanishParser(token);
+            // Lex para errores
             lexer = new SpanishLexer(CharStreams.fromString(input));
-            CommonTokenStream tokens = new CommonTokenStream(lexer);
-            SpanishParser parser = new SpanishParser(tokens);
+            CommonTokenStream token2 = new CommonTokenStream(lexer);
+
 
             // Captura de errores
             CaptureErrors errorListener = new CaptureErrors();
-            lexer.removeErrorListeners();
-            lexer.addErrorListener(errorListener);
+            lex.removeErrorListeners();
+            lex.addErrorListener(errorListener);
             parser.removeErrorListeners();
             parser.addErrorListener(errorListener);
-            lexicalErr = errorListener.getLexicalErrors();
-            syntaxErr = errorListener.getSyntaxErrors();
-            semanticErr = errorListener.getSemanticErrors();
+
+            // Elimina errores
+            lexer.removeErrorListeners();
 
             // Captura de Tokens
             TokenTable tokenTable = new TokenTable();
-            tokenTable.tokensMapSpanish(tokens, parser);
+            tokenTable.tokensMapSpanish(token2, parser);
             alltokens = tokenTable.getAllTokens();
+            allErrors = errorListener.getAllErrors();
 
             parseTree = parser.sentence();
 
@@ -92,17 +99,10 @@ public class Translator {
     public Map<String,String> returnTokens(){
         return this.alltokens;
     }
-    // Retorna erroers lexicos
-    public Map<String,String> returnLexicalErrors(){
-        return this.lexicalErr;
-    }
-    // Retorna erroes sintacticos
-    public Map<String,String> returnSyntaxErrors(){
-        return this.syntaxErr;
-    }
+
     //Retorna errores semanticos
-    public Map<String,String> returnSemanticErrors(){
-        return this.semanticErr;
+    public Map<String,String> allErrors(){
+        return this.allErrors;
     }
 
 

@@ -1,15 +1,20 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Map;
 
 public class TranslatorGUI {
+
     private static boolean isSpanishSelected = false;
     private static boolean isEnglishSelected = false;
+    private static Map<String,String> allTokens;
+    private static Map<String, String> allErrors;
     public static void main(String[] args) {
         JFrame frame = new JFrame("Simple Translator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 400);
+        frame.setSize(800, 700);
 
         JPanel panel = new JPanel();
         frame.add(panel);
@@ -19,6 +24,7 @@ public class TranslatorGUI {
     }
 
     private static void placeComponents(JPanel panel) {
+
         panel.setLayout(null);
 
         JLabel inputLabel = new JLabel("Input:");
@@ -58,22 +64,35 @@ public class TranslatorGUI {
         buttonGroup.add(languageSpanish);
         buttonGroup.add(languageEnglish);
 
-
         Translator translator = new Translator();
 
         translateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                AddTable tables = new AddTable();
                 String inputText = inputTextArea.getText().toLowerCase();
                 if(isEnglishSelected){
                     boolean fromEnglishToSpanish = true; // Cambie este valor según el idioma de entrada deseado
                     String translatedText = translator.translate(inputText, fromEnglishToSpanish);
                     outputTextArea.setText(translatedText);
+
+                    // Carga de datos y mostrarlos en la tabla
+                    allErrors = translator.allErrors();
+                    allTokens = translator.returnTokens();
+                    tables.addTableTokens(panel,allTokens,"Token","Information");
+                    tables.addTableErrors(panel,allErrors,"Error","Message");
+
                 }
                 else if (isSpanishSelected){
                     boolean fromEnglishToSpanish = false; // Cambie este valor según el idioma de entrada deseado
                     String translatedText = translator.translate(inputText, fromEnglishToSpanish);
                     outputTextArea.setText(translatedText);
+                    
+                    // Carga de datos y mostrarlos en la tabla
+                    allErrors = translator.allErrors();
+                    allTokens = translator.returnTokens();
+                    tables.addTableTokens(panel,allTokens,"Token","Information");
+                    tables.addTableErrors(panel,allErrors,"Error","Message");
                 }
 
             }
