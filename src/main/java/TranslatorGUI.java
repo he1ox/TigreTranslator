@@ -3,7 +3,10 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Map;
+import java.util.Scanner;
 
 public class TranslatorGUI {
 
@@ -52,6 +55,10 @@ public class TranslatorGUI {
         speakButton.setBounds(400, 270, 100, 25);
         panel.add(speakButton);
 
+        JButton browserButton = new JButton("Browser");
+        browserButton.setBounds(550, 270, 100, 25);
+        panel.add(browserButton);
+
         JToggleButton languageSpanish = new JToggleButton("Español", false);
         languageSpanish.setBounds(10, 270, 100, 25);
         panel.add(languageSpanish);
@@ -60,9 +67,11 @@ public class TranslatorGUI {
         languageEnglish.setBounds(120, 270, 100, 25);
         panel.add(languageEnglish);
 
+
         ButtonGroup buttonGroup = new ButtonGroup();
         buttonGroup.add(languageSpanish);
         buttonGroup.add(languageEnglish);
+
 
         Translator translator = new Translator();
 
@@ -131,6 +140,34 @@ public class TranslatorGUI {
                 }
             }
         });
+
+        browserButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+                int result = fileChooser.showOpenDialog(null);
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+
+                    try {
+                        Scanner scanner = new Scanner(selectedFile);
+                        StringBuilder sb = new StringBuilder();
+
+                        while (scanner.hasNext()) {
+                            sb.append(scanner.nextLine());
+                        }
+
+                        String fileContent = sb.toString();
+                        // Haz algo con el contenido del archivo aquí
+                        inputTextArea.setText(fileContent);
+                    } catch (FileNotFoundException ex) {
+                        System.out.println("Hay algo malo en el boton"+ ex );
+                    }
+                }
+
+            }
+        });
+
 
 
     }
