@@ -167,7 +167,94 @@ public class SymbolTable {
         dictionary.put("wall", "pared");
         dictionary.put("roof", "techo");
 
+        //--------------------------------------------------- INDEFINITE_ADJECTIVES:
+
+        dictionary.put("some", "alguno");
+        dictionary.put("several", "varios");
+        dictionary.put("any", "cualquier");
+        dictionary.put("another", "otro");
+        dictionary.put("each", "cada");
+        dictionary.put("every", "todo");
+        dictionary.put("none", "ninguno");
+        dictionary.put("much", "mucho");
+        dictionary.put("little", "poco");
+        dictionary.put("enough", "suficiente");
+        dictionary.put("quite", "bastante");
+        dictionary.put("too many", "demasiado");
+        dictionary.put("too few", "demasiado poco");
+
+        //--------------------------------------------------- CARDINAL_NUMBER:
+        dictionary.put("zero", "cero");
+        dictionary.put("one", "uno");
+        dictionary.put("two", "dos");
+        dictionary.put("three", "tres");
+        dictionary.put("four", "cuatro");
+        dictionary.put("five", "cinco");
+        dictionary.put("six", "seis");
+        dictionary.put("seven", "siete");
+        dictionary.put("eight", "ocho");
+        dictionary.put("nine", "nueve");
+        dictionary.put("ten", "diez");
+        dictionary.put("eleven", "once");
+        dictionary.put("twelve", "doce");
+        dictionary.put("thirteen", "trece");
+        dictionary.put("fourteen", "catorce");
+        dictionary.put("fifteen", "quince");
+        dictionary.put("sixteen", "dieciséis");
+        dictionary.put("seventeen", "diecisiete");
+        dictionary.put("eighteen", "dieciocho");
+        dictionary.put("nineteen", "diecinueve");
+        dictionary.put("twenty", "veinte");
+        dictionary.put("thirty", "treinta");
+        dictionary.put("forty", "cuarenta");
+        dictionary.put("fifty", "cincuenta");
+        dictionary.put("sixty", "sesenta");
+        dictionary.put("seventy", "setenta");
+        dictionary.put("eighty", "ochenta");
+        dictionary.put("ninety", "noventa");
+        dictionary.put("hundred", "cien");
+        dictionary.put("thousand", "mil");
+        dictionary.put("million", "millón");
+
+
+
+
+        //---------------------------------------------------NUMERICAL_ORDINAL
+        dictionary.put("first", "primero");
+        dictionary.put("second", "segundo");
+        dictionary.put("third", "tercero");
+        dictionary.put("fourth", "cuarto");
+        dictionary.put("fifth", "quinto");
+        dictionary.put("sixth", "sexto");
+        dictionary.put("seventh", "séptimo");
+        dictionary.put("eighth", "octavo");
+        dictionary.put("ninth", "noveno");
+        dictionary.put("tenth", "décimo");
+        dictionary.put("eleventh", "onceavo");
+        dictionary.put("twelfth", "doceavo");
+        dictionary.put("thirteenth", "treceavo");
+        dictionary.put("fourteenth", "catorceavo");
+        dictionary.put("fifteenth", "quinceavo");
+        dictionary.put("sixteenth", "dieciséisavo");
+        dictionary.put("seventeenth", "diecisieteavo");
+        dictionary.put("eighteenth", "dieciochoavo");
+        dictionary.put("nineteenth", "diecinueveavo");
+        dictionary.put("twentieth", "veinteavo");
+        dictionary.put("thirtieth", "trigésimo");
+        dictionary.put("fortieth", "cuadragésimo");
+        dictionary.put("fiftieth", "quinquagésimo");
+        dictionary.put("sixtieth", "sexagésimo");
+        dictionary.put("seventieth", "septuagésimo");
+        dictionary.put("eightieth", "octogésimo");
+        dictionary.put("ninetieth", "nonagésimo");
+        dictionary.put("hundredth", "centésimo");
+        dictionary.put("thousandth", "milésimo");
+        dictionary.put("millionth", "millonésimo");
+
+
+
         //---------------------------------------------------
+
 
 
         // Agregar adjetivos y sus traducciones
@@ -206,6 +293,8 @@ public class SymbolTable {
         dictionary.put("she", "ella");
 
         dictionary.put("my","mi");
+
+
 
     }
 

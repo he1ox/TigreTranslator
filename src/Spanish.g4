@@ -15,6 +15,9 @@ prepositionalPhrase: PREPOSITION nounPhrase;
 
 // Lexer Rules
 ARTICLE: 'el' | 'la' | 'un' | 'una';
+INDEFINITE_ADJECTIVE: 'alguno' | 'cierto' | 'varios' | 'cualquier' | 'otro' | 'cada' | 'todo' | 'ninguno' | 'mucho' | 'poco' | 'suficiente' | 'bastante' | 'demasiado';
+CARDINAL_NUMBER:'cero' | 'uno' | 'dos' | 'tres' | 'cuatro' | 'cinco' | 'seis' | 'siete' | 'ocho' | 'nueve' | 'diez' | 'once' | 'doce' | 'trece' | 'catorce' | 'quince' | 'dieciséis' | 'diecisiete' | 'dieciocho' | 'diecinueve' | 'veinte' | 'treinta' | 'cuarenta' | 'cincuenta' | 'sesenta' | 'setenta' | 'ochenta' | 'noventa' | 'cien' | 'mil' | 'millón';
+NUMERICAL_ORDINAL:  'primero' | 'segundo' | 'tercero' | 'cuarto' | 'quinto' | 'sexto' | 'séptimo' | 'octavo' | 'noveno' | 'décimo' | 'onceavo' | 'doceavo' | 'treceavo' | 'catorceavo' | 'quinceavo' | 'dieciséisavo' | 'diecisieteavo' | 'dieciochoavo' | 'diecinueveavo' | 'veinteavo' | 'trigésimo' | 'cuadragésimo' | 'quinquagésimo' | 'sexagésimo' | 'septuagésimo' | 'octogésimo' | 'nonagésimo' | 'centésimo' | 'milésimo' | 'millonésimo';
 ADJECTIVE: 'grande' | 'pequeño' | 'alto' | 'bajo';
 NOUN: 'perro' | 'gato' | 'pájaro' | 'casa';
 VERB: 'corre' | 'salta' | 'vuela';

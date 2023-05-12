@@ -7,9 +7,9 @@ phrase: (nounPhrase | verbPhrase | prepositionalPhrase)+;
 
 nounPhrase: (ARTICLE | POSSESSIVE_PRONOUN)? (ADJECTIVE | NUMERAL)* NOUN;
 
-verbPhrase: VERB (ADVERB | prepositionalPhrase)*;
+verbPhrase: VERB (adverbPhrase  | prepositionalPhrase)*;
 
-adverbPhrase: ADVERB;
+adverbPhrase: ADVERB ;
 
 prepositionalPhrase: PREPOSITION nounPhrase;
 
@@ -45,15 +45,15 @@ QUALIFYING_AJECTIVES: 'beautiful' | 'smart' | 'talented' | 'friendly' | 'kind' |
 'resilient'|'sensational'|'serendipitous'|'shining'|'sparkling'|'splendid'|'stellar'|'stunning'|'sublime'|'superb'|'supreme'|'surprising'|'terrific'|'thriving'|'thrilling'|'tranquil'|'triumphant'|'ultimate'|'unforgettable'|
 'unstoppable'|'vibrant'|'victorious'|'wonderful'|'zesty';
 
-INDEFINITE_ADJECTIVES: 'faltan';
+INDEFINITE_ADJECTIVES: 'some' | 'several' | 'any' | 'another' | 'each' | 'every' | 'none' | 'much' | 'little' | 'enough' | 'quite' | 'too many' | 'too few';
 
 NUMERAL_ADJECTIVES: CARDINAL_NUMBER | NUMERICAL_ORDINAL;
 
-CARDINAL_NUMBER: 'faltan';
+CARDINAL_NUMBER: 'zero' | 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven' | 'eight' | 'nine' | 'ten' | 'eleven' | 'twelve' | 'thirteen' | 'fourteen' | 'fifteen' | 'sixteen' | 'seventeen' | 'eighteen' | 'nineteen' | 'twenty' | 'thirty' | 'forty' | 'fifty' | 'sixty' | 'seventy' | 'eighty' | 'ninety' | 'hundred' | 'thousand' | 'million';
 
-NUMERICAL_ORDINAL:'faltan';
+NUMERICAL_ORDINAL:'first' | 'second' | 'third' | 'fourth' | 'fifth' | 'sixth' | 'seventh' | 'eighth' | 'ninth' | 'tenth' | 'eleventh' | 'twelfth' | 'thirteenth' | 'fourteenth' | 'fifteenth' | 'sixteenth' | 'seventeenth' | 'eighteenth' | 'nineteenth' | 'twentieth' | 'thirtieth' | 'fortieth' | 'fiftieth' | 'sixtieth' | 'seventieth' | 'eightieth' | 'ninetieth' | 'hundredth' | 'thousandth' | 'millionth';
 //ADJETIVOS
-ARTICLE: 'the' | 'a' | 'an';
+ARTICLE: 'the' | 'a' | 'an' | 'some' | 'any' | 'no' | 'every';
 VERB: 'run' | 'jump' | 'fly' | 'is';
 PREPOSITION: 'in' | 'on' | 'at' | 'over' | 'by';
 ADVERB: 'quickly' | 'slowly' | 'gracefully';
