@@ -30,7 +30,7 @@ public class TranslatorGUI {
 
         panel.setLayout(null);
 
-        JLabel inputLabel = new JLabel("Input:");
+        JLabel inputLabel = new JLabel("Entrada:");
         inputLabel.setBounds(10, 10, 80, 25);
         panel.add(inputLabel);
 
@@ -38,7 +38,7 @@ public class TranslatorGUI {
         inputTextArea.setBounds(100, 10, 450, 100);
         panel.add(inputTextArea);
 
-        JLabel outputLabel = new JLabel("Output:");
+        JLabel outputLabel = new JLabel("Salida:");
         outputLabel.setBounds(10, 150, 80, 25);
         panel.add(outputLabel);
 
@@ -47,16 +47,20 @@ public class TranslatorGUI {
         outputTextArea.setEditable(false);
         panel.add(outputTextArea);
 
-        JButton translateButton = new JButton("Translate");
+        JButton reproducirAudioBtn = new JButton("Escuchar");
+        reproducirAudioBtn.setBounds(570, 150, 100, 25);
+        panel.add(reproducirAudioBtn);
+
+        JButton translateButton = new JButton("Traducir");
         translateButton.setBounds(250, 270, 100, 25);
         panel.add(translateButton);
 
-        JButton speakButton = new JButton("Speak");
+        JButton speakButton = new JButton("Rec. por Voz");
         speakButton.setBounds(400, 270, 100, 25);
         panel.add(speakButton);
 
-        JButton browserButton = new JButton("Browser");
-        browserButton.setBounds(550, 270, 100, 25);
+        JButton browserButton = new JButton("Buscador");
+        browserButton.setBounds(570, 270, 100, 25);
         panel.add(browserButton);
 
         JToggleButton languageSpanish = new JToggleButton("Español", false);
