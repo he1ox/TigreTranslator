@@ -79,6 +79,14 @@ public class TranslatorGUI {
 
         Translator translator = new Translator();
 
+        reproducirAudioBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+
         translateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
