@@ -3,9 +3,11 @@ grammar Spanish;
 // Parser Rules
 sentence: (phrase (PUNCTUATION phrase)*)? EOF;
 
-phrase: (nounPhrase | verbPhrase | prepositionalPhrase)+;
+phrase: nounPhrase verbPhrase (prepositionalPhrase)*;
 
-nounPhrase: (ARTICLE | POSSESSIVE_PRONOUN)? (ADJECTIVE | NUMERAL)* NOUN;
+nounPhrase: (ARTICLE | POSSESSIVE_PRONOUN)? (adjectivePhrase)* NOUN;
+
+adjectivePhrase: ADJECTIVE | NUMERAL;
 
 verbPhrase: VERB (adverbPhrase | prepositionalPhrase)*;
 
@@ -20,7 +22,7 @@ CARDINAL_NUMBER:'cero' | 'uno' | 'dos' | 'tres' | 'cuatro' | 'cinco' | 'seis' | 
 NUMERICAL_ORDINAL:  'primero' | 'segundo' | 'tercero' | 'cuarto' | 'quinto' | 'sexto' | 'séptimo' | 'octavo' | 'noveno' | 'décimo' | 'onceavo' | 'doceavo' | 'treceavo' | 'catorceavo' | 'quinceavo' | 'dieciséisavo' | 'diecisieteavo' | 'dieciochoavo' | 'diecinueveavo' | 'veinteavo' | 'trigésimo' | 'cuadragésimo' | 'quinquagésimo' | 'sexagésimo' | 'septuagésimo' | 'octogésimo' | 'nonagésimo' | 'centésimo' | 'milésimo' | 'millonésimo';
 ADJECTIVE: 'grande' | 'pequeño' | 'alto' | 'bajo';
 NOUN: 'perro' | 'gato' | 'pájaro' | 'casa';
-VERB: 'corre' | 'salta' | 'vuela';
+VERB: 'corre' | 'salta' | 'vuela' | 'es';
 PREPOSITION: 'en' | 'sobre' | 'cerca' | 'debajo';
 ADVERB: 'rápidamente' | 'lentamente' | 'grácilmente';
 POSSESSIVE_PRONOUN: 'mi' | 'tu' | 'su';
