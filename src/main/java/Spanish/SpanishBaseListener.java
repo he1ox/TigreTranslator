@@ -1,4 +1,4 @@
-// Generated from C:/Users/georg/IdeaProjects/TigreTranslator/src\Spanish.g4 by ANTLR 4.12.0
+// Generated from C:/Users/click/Documents/JS_Scripts/TigreTranslator/src\Spanish.g4 by ANTLR 4.12.0
 package Spanish;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -65,18 +65,6 @@ public class SpanishBaseListener implements SpanishListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAdverbPhrase(SpanishParser.AdverbPhraseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAdverbPhrase(SpanishParser.AdverbPhraseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterPrepositionalPhrase(SpanishParser.PrepositionalPhraseContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -84,6 +72,30 @@ public class SpanishBaseListener implements SpanishListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitPrepositionalPhrase(SpanishParser.PrepositionalPhraseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterConjunctionPhrase(SpanishParser.ConjunctionPhraseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConjunctionPhrase(SpanishParser.ConjunctionPhraseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterInterjectionPhrase(SpanishParser.InterjectionPhraseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInterjectionPhrase(SpanishParser.InterjectionPhraseContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

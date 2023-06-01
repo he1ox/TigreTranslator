@@ -43,7 +43,7 @@ public class Translator {
 
             // Captura de Tokens
             TokenTable tokenTable = new TokenTable();
-            tokenTable.tokensMapEnglish(token, parser);
+            tokenTable.tokensMapEnglish(token);
             alltokens = tokenTable.getAllTokens();
             allErrors = errorListener.getAllErrors();
 
@@ -74,7 +74,7 @@ public class Translator {
 
             // Captura de Tokens
             TokenTable tokenTable = new TokenTable();
-            tokenTable.tokensMapSpanish(token2, parser);
+            tokenTable.tokensMapSpanish(token2);
             alltokens = tokenTable.getAllTokens();
             allErrors = errorListener.getAllErrors();
 

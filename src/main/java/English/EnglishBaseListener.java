@@ -1,4 +1,4 @@
-// Generated from C:/Users/georg/IdeaProjects/TigreTranslator/src\English.g4 by ANTLR 4.12.0
+// Generated from C:/Users/click/Documents/JS_Scripts/TigreTranslator/src\English.g4 by ANTLR 4.12.0
 package English;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -65,18 +65,6 @@ public class EnglishBaseListener implements EnglishListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAdverbPhrase(EnglishParser.AdverbPhraseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAdverbPhrase(EnglishParser.AdverbPhraseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterPrepositionalPhrase(EnglishParser.PrepositionalPhraseContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -84,6 +72,30 @@ public class EnglishBaseListener implements EnglishListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitPrepositionalPhrase(EnglishParser.PrepositionalPhraseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterConjunctionPhrase(EnglishParser.ConjunctionPhraseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConjunctionPhrase(EnglishParser.ConjunctionPhraseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterInterjectionPhrase(EnglishParser.InterjectionPhraseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInterjectionPhrase(EnglishParser.InterjectionPhraseContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

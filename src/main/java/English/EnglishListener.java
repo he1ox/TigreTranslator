@@ -1,4 +1,4 @@
-// Generated from C:/Users/georg/IdeaProjects/TigreTranslator/src\English.g4 by ANTLR 4.12.0
+// Generated from C:/Users/click/Documents/JS_Scripts/TigreTranslator/src\English.g4 by ANTLR 4.12.0
 package English;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -48,16 +48,6 @@ public interface EnglishListener extends ParseTreeListener {
 	 */
 	void exitVerbPhrase(EnglishParser.VerbPhraseContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link EnglishParser#adverbPhrase}.
-	 * @param ctx the parse tree
-	 */
-	void enterAdverbPhrase(EnglishParser.AdverbPhraseContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link EnglishParser#adverbPhrase}.
-	 * @param ctx the parse tree
-	 */
-	void exitAdverbPhrase(EnglishParser.AdverbPhraseContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link EnglishParser#prepositionalPhrase}.
 	 * @param ctx the parse tree
 	 */
@@ -67,4 +57,24 @@ public interface EnglishListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitPrepositionalPhrase(EnglishParser.PrepositionalPhraseContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EnglishParser#conjunctionPhrase}.
+	 * @param ctx the parse tree
+	 */
+	void enterConjunctionPhrase(EnglishParser.ConjunctionPhraseContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EnglishParser#conjunctionPhrase}.
+	 * @param ctx the parse tree
+	 */
+	void exitConjunctionPhrase(EnglishParser.ConjunctionPhraseContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EnglishParser#interjectionPhrase}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterjectionPhrase(EnglishParser.InterjectionPhraseContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EnglishParser#interjectionPhrase}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterjectionPhrase(EnglishParser.InterjectionPhraseContext ctx);
 }

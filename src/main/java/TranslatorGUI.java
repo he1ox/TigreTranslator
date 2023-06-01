@@ -157,7 +157,8 @@ public class TranslatorGUI {
             public void actionPerformed(ActionEvent e) {
                 AddTable tables = new AddTable();
                 String inputText = inputTextArea.getText().toLowerCase();
-                if(isEnglishSelected){
+                //De ingles a español, en el panel para traducir tiene que seleccionar el boton al que se va a traducir.
+                if(isSpanishSelected){
                     boolean fromEnglishToSpanish = true; // Cambie este valor según el idioma de entrada deseado
                     String translatedText = translator.translate(inputText, fromEnglishToSpanish);
                     outputTextArea.setText(translatedText);
@@ -174,7 +175,8 @@ public class TranslatorGUI {
                     tables.addTableErrors(middlePanel,allErrors,"Error","Message");;
 
                 }
-                else if (isSpanishSelected){
+                // De Español a ingles
+                else if (isEnglishSelected){
                     boolean fromEnglishToSpanish = false; // Cambie este valor según el idioma de entrada deseado
                     String translatedText = translator.translate(inputText, fromEnglishToSpanish);
                     outputTextArea.setText(translatedText + "\n" + TigreAI.explicacion(translatedText));

@@ -1,4 +1,4 @@
-// Generated from C:/Users/georg/IdeaProjects/TigreTranslator/src\Spanish.g4 by ANTLR 4.12.0
+// Generated from C:/Users/click/Documents/JS_Scripts/TigreTranslator/src\Spanish.g4 by ANTLR 4.12.0
 package Spanish;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -48,16 +48,6 @@ public interface SpanishListener extends ParseTreeListener {
 	 */
 	void exitVerbPhrase(SpanishParser.VerbPhraseContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SpanishParser#adverbPhrase}.
-	 * @param ctx the parse tree
-	 */
-	void enterAdverbPhrase(SpanishParser.AdverbPhraseContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link SpanishParser#adverbPhrase}.
-	 * @param ctx the parse tree
-	 */
-	void exitAdverbPhrase(SpanishParser.AdverbPhraseContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link SpanishParser#prepositionalPhrase}.
 	 * @param ctx the parse tree
 	 */
@@ -67,4 +57,24 @@ public interface SpanishListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitPrepositionalPhrase(SpanishParser.PrepositionalPhraseContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SpanishParser#conjunctionPhrase}.
+	 * @param ctx the parse tree
+	 */
+	void enterConjunctionPhrase(SpanishParser.ConjunctionPhraseContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SpanishParser#conjunctionPhrase}.
+	 * @param ctx the parse tree
+	 */
+	void exitConjunctionPhrase(SpanishParser.ConjunctionPhraseContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SpanishParser#interjectionPhrase}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterjectionPhrase(SpanishParser.InterjectionPhraseContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SpanishParser#interjectionPhrase}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterjectionPhrase(SpanishParser.InterjectionPhraseContext ctx);
 }

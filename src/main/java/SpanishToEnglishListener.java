@@ -15,7 +15,7 @@ public class SpanishToEnglishListener extends SpanishBaseListener {
         String word = node.getText();
 
         // Ignorar el nodo <EOF>
-        if (word.equals("<EOF>")) {
+        if (word.equals("<EOF>") || word.equals("¿") || word.equals("¡")) {
             return;
         }
 

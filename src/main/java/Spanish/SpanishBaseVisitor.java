@@ -1,4 +1,4 @@
-// Generated from C:/Users/georg/IdeaProjects/TigreTranslator/src\Spanish.g4 by ANTLR 4.12.0
+// Generated from C:/Users/click/Documents/JS_Scripts/TigreTranslator/src\Spanish.g4 by ANTLR 4.12.0
 package Spanish;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
@@ -46,12 +46,19 @@ public class SpanishBaseVisitor<T> extends AbstractParseTreeVisitor<T> implement
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAdverbPhrase(SpanishParser.AdverbPhraseContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPrepositionalPhrase(SpanishParser.PrepositionalPhraseContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPrepositionalPhrase(SpanishParser.PrepositionalPhraseContext ctx) { return visitChildren(ctx); }
+	@Override public T visitConjunctionPhrase(SpanishParser.ConjunctionPhraseContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitInterjectionPhrase(SpanishParser.InterjectionPhraseContext ctx) { return visitChildren(ctx); }
 }

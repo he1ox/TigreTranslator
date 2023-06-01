@@ -1,66 +1,130 @@
 grammar English;
 
 // Parser Rules
-sentence: (phrase (PUNCTUATION phrase)*)? EOF;
+sentence
+    :   (phrase (PUNCTUATION phrase)*)? EOF
+    ;
 
-phrase: (nounPhrase | verbPhrase | prepositionalPhrase)+;
+phrase
+    :  (nounPhrase | verbPhrase | prepositionalPhrase | conjunctionPhrase | interjectionPhrase)*
+    ;
 
-nounPhrase: (ARTICLE | POSSESSIVE_PRONOUN)? (ADJECTIVE | NUMERAL)* NOUN;
+nounPhrase
+    :   ( DETERM | ARTICLE | POSSESSIVE_PRONOUN | PRONOUN | NUMERAL)? (ADJETIVE | NUMERAL | VERB)* (ARTICLE)? (PUNCTUATION)? (ADJETIVE)? (ADVERB)? (VERB)? (PREPOSITION)? (prepositionalPhrase)?  NOUN+
+    ;
+verbPhrase
+    :   VERB (ADVERB | prepositionalPhrase )*
+    ;
 
-verbPhrase: VERB (adverbPhrase  | prepositionalPhrase)*;
+prepositionalPhrase
+    :   PREPOSITION nounPhrase
+    ;
 
-adverbPhrase: ADVERB ;
+conjunctionPhrase
+    :   CONJUNCTION phrase
+    ;
 
-prepositionalPhrase: PREPOSITION nounPhrase;
+interjectionPhrase
+    :   INTERJECTION
+    ;
 
 // Lexer Rules
-//SUSTANTIVOS
-NOUN: 'dog' | 'cat' | 'chair' | 'table' | 'book' | 'phone' | 'computer' | 'car' | 'bicycle' | 'plane' | 'train' | 'bus' | 'cup' | 'plate' | 'fork' | 'spoon' | 'knife' | 'television' | 'movie' | 'music' | 'art' | 'science' |
-'math' | 'history' | 'geography' | 'language' | 'food' | 'water' | 'air' | 'earth' | 'sun' | 'moon' | 'star' | 'planet' | 'universe' | 'galaxy' | 'ocean' | 'river' | 'mountain' | 'forest' | 'park' | 'beach' | 'city' |
-'town' | 'village' | 'country' | 'world' | 'globe' | 'map' | 'compass' | 'camera' | 'photo' | 'video' | 'game' | 'sport' | 'ball' | 'bat' | 'glove' | 'shoe' | 'hat' | 'jacket' | 'shirt' | 'pants' | 'dress' | 'skirt' |
- 'sock' | 'boot' | 'sandal' | 'sneaker' | 'glasses' | 'sunglasses' | 'cap' | 'scarf' | 'gloves' | 'bag' | 'wallet' | 'key' | 'lock' | 'door' | 'window' | 'wall' | 'roof' | 'floor' | 'stairs' | 'elevator' | 'bridge' | 'road' |
- 'highway' | 'street' | 'avenue' | 'building' | 'house' | 'apartment' | 'hotel' | 'hospital' | 'school' | 'university' | 'office' | 'factory' | 'store' | 'restaurant' | 'bar' | 'pub' | 'club' | 'church' | 'temple' | 'mosque' |
- 'synagogue' | 'library' | 'museum' | 'zoo' | 'aquarium' | 'park' | 'garden' | 'farm' | 'ranch' | 'jungle' | 'desert' | 'island' | 'lake' | 'pond' | 'stream' | 'waterfall' | 'cave' | 'canyon' | 'hill' | 'valley' | 'plateau' |
- 'glacier' | 'volcano' | 'bay' | 'harbor' | 'port' | 'airport' | 'station' | 'stop' | 'terminal' | 'ticket' | 'passport' | 'visa' | 'money' | 'credit card' | 'bank' | 'ATM' | 'post office' | 'mail' | 'letter' | 'envelope' | 'stamp'
- | 'phone' | 'fax' | 'email' | 'website' | 'internet' | 'social media' | 'news' | 'magazine' | 'newspaper' | 'journal' | 'diary' | 'calendar' | 'clock' | 'watch' | 'alarm' | 'weather' | 'temperature'|'climate' | 'sun' | 'moon' |
- 'star' | 'planet' | 'comet' | 'asteroid' | 'meteor' | 'eclipse' | 'aurora' | 'thunder' | 'lightning' | 'rainbow' | 'cloud' | 'wind' | 'tornado' | 'hurricane' | 'earthquake' | 'tsunami' | 'flood' | 'drought' | 'fire' | 'smoke' | 'ash' | 'ice' | 'snow';
+DETERM:'every'|'each';
+ARTICLE
+    :   'the' | 'a' | 'an'|'some'|'a few'|'to the'|'of the'|'something'|'nothing'|'any'|'no'|'any'
+    ;
 
-//SUSTANTIVOS
-//ADJETIVOS
-ADJECTIVE: POSSESSIVE_ADJECTIVE | DEMONSTRATIVE_ADJECTIVES | QUALIFYING_AJECTIVES| NUMERAL_ADJECTIVES  | INDEFINITE_ADJECTIVES;
+POSSESSIVE_PRONOUN
+    :   'these'|'those'|'that'|'this'|'my' | 'your' | 'his' | 'her' | 'its' | 'our' | 'their'|'mine'|'them'|'him'
+    ;
 
-POSSESSIVE_ADJECTIVE: 'my' | 'your' | 'his' | 'her' | 'its' | 'our' | 'their';
+ADJETIVE
+    : 'beautiful'|'delicius'|'big' | 'small' | 'tall' | 'short' | 'fat' | 'thin' | 'happy' | 'sad' | 'friendly' | 'mean'
+    | 'new' | 'old' | 'red' | 'blue' | 'green' | 'yellow' | 'black' | 'white' | 'purple' | 'orange'
+    | 'intelligent' | 'funny' | 'brave' | 'shy' | 'lazy' | 'clean' | 'dirty' | 'hot' | 'cold' | 'wet'
+    | 'dry' | 'fast' | 'slow' | 'easy' | 'hard' | 'beautiful' | 'ugly' | 'young' | 'old' | 'rich'
+    | 'poor' | 'good' | 'bad' | 'great' | 'terrible' | 'important' | 'interesting' | 'boring' | 'delicious'
+    | 'disgusting' | 'expensive' | 'cheap' | 'difficult' | 'easy' | 'strong' | 'weak' | 'happy' | 'sad'
+    | 'excited' | 'calm' | 'angry' | 'tired' | 'energetic' | 'kind' | 'cruel' | 'brilliant' | 'stupid'
+    | 'honest' | 'dishonest' | 'polite' | 'rude' | 'generous' | 'selfish' | 'patient' | 'impatient'
+    | 'proud' | 'ashamed' | 'quiet' | 'noisy' | 'silly' | 'serious' | 'organized' | 'messy' | 'creative'
+    | 'ordinary' | 'extraordinary' | 'careful' | 'careless' | 'beautiful' | 'ugly' | 'accurate' | 'inaccurate'
+    | 'popular' | 'unpopular' | 'famous' | 'unknown' | 'lovely' | 'awful' | 'wise' | 'foolish' | 'friendly'
+    | 'hostile' | 'helpful' | 'useless' | 'vivid' | 'pale' | 'fierce' | 'gentle' | 'sweet' | 'sour' | 'spicy'
+    | 'bitter' | 'fresh' | 'stale' | 'modern' | 'ancient' | 'normal' | 'abnormal' | 'successful' | 'unsuccessful'
+    | 'real' | 'fake' | 'open' | 'closed' | 'free' | 'expensive' | 'young' | 'old' | 'rich' | 'poor' | 'good'
+    | 'bad' | 'great' | 'terrible' | 'important' | 'interesting' | 'boring' | 'delicious' | 'disgusting'
+    | 'difficult' | 'easy' | 'strong' | 'weak' | 'happy' | 'sad' | 'excited' | 'calm' | 'angry' | 'tired'
+    | 'energetic' | 'kind' | 'cruel' | 'brilliant' | 'stupid' | 'honest' | 'dishonest'
+    ;
 
-DEMONSTRATIVE_ADJECTIVES: 'another' | 'any' | 'both' | 'certain' | 'different' | 'each' | 'either' | 'enough' | 'every' | 'few' | 'first' | 'last' | 'many' | 'neither' | 'next' | 'no' | 'one' | 'other' | 'particular' | 'plenty' |
-'same' | 'several' | 'some' | 'such' | 'that' | 'these' | 'this' | 'those' | 'various' | 'what' | 'which' | 'whichever' | 'whose';
+NUMERAL
+:   'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven' | 'eight' | 'nine' | 'ten'
+| 'eleven' | 'twelve' | 'thirteen' | 'fourteen' | 'fifteen' | 'sixteen' | 'seventeen' | 'eighteen' | 'nineteen'
+| 'twenty' | 'thirty' | 'forty' | 'fifty' | 'sixty' | 'seventy' | 'eighty' | 'ninety' | 'hundred' | 'thousand'
+;
 
-QUALIFYING_AJECTIVES: 'beautiful' | 'smart' | 'talented' | 'friendly' | 'kind' | 'generous' | 'funny' | 'intelligent' | 'creative' | 'brave' | 'courageous' | 'fierce' | 'honest' | 'loyal' | 'confident' | 'passionate'
-| 'determined' | 'hardworking' | 'compassionate' | 'charming' | 'handsome' | 'gorgeous' | 'pretty' | 'elegant' | 'sophisticated' | 'exquisite' | 'delicate' | 'luxurious' | 'spacious' | 'modern' | 'rustic' | 'cozy' | 'comfortable'
-| 'refreshing' | 'relaxing' | 'stimulating' | 'energizing' | 'delicious' | 'tasty' | 'flavorful' | 'nutritious' | 'healthy' | 'organic' | 'fresh' | 'juicy' | 'tender' | 'crispy' | 'crunchy' | 'soft' | 'smooth' | 'silky' | 'velvety'
- | 'sparkling' | 'shimmering' | 'glittering' | 'dazzling' | 'radiant' | 'colorful' | 'vibrant' | 'picturesque' | 'scenic' | 'majestic' | 'serene' | 'tranquil' | 'peaceful' | 'quiet' | 'harmonious' | 'pleasant' | 'cheerful' | 'lively'
- | 'festive' | 'playful' | 'romantic' | 'passionate' | 'sensual' | 'exciting' | 'thrilling' | 'adventurous' | 'mysterious' | 'fascinating' | 'intriguing' | 'captivating' | 'engaging' | 'inspiring' | 'motivating' | 'challenging' | 'rewarding'
- | 'fulfilling' |'adorable'|'ambitious'|'blissful'|'bold'|'breezy'|'carefree'|'charismatic'|'cheerful'|'dazzling'|'delightful'|'distinguished'|'divine'|'dynamic'|'ecstatic'|'effervescent'|'eloquent'|
-'enchanting'|'endearing'|'enthusiastic'|'epic'|'euphoric'|'excellent'|'extraordinary'|'fabulous'|'fascinating'|'flawless'|'flowing'|'funky'|'glamorous'|'gleaming'|'graceful'|'gracious'|'happy'|'heavenly'|'heroic'|
-'jovial'|'joyful'|'lively'|'lovely'|'luminous'|'magnificent'|'marvelous'|'miraculous'|'mystical'|'noble'|'optimistic'|'outstanding'|'passionate'|'peaceful'|'perfect'|'playful'|'pleasurable'|'positive'|'radiant'|
-'resilient'|'sensational'|'serendipitous'|'shining'|'sparkling'|'splendid'|'stellar'|'stunning'|'sublime'|'superb'|'supreme'|'surprising'|'terrific'|'thriving'|'thrilling'|'tranquil'|'triumphant'|'ultimate'|'unforgettable'|
-'unstoppable'|'vibrant'|'victorious'|'wonderful'|'zesty';
+NOUN
+    : 'car'|'food'|'soccer'|'time' | 'year' | 'people' | 'way' | 'day' | 'man' | 'government' | 'life' | 'part' | 'child'
+    | 'world' | 'school' | 'state' | 'family' | 'student' | 'group' | 'country' | 'problem' | 'hand' | 'place'
+    | 'case' | 'week' | 'company' | 'system' | 'program' | 'question' | 'work' | 'government' | 'number' | 'night'
+    | 'point' | 'home' | 'water' | 'room' | 'mother' | 'area' | 'money' | 'story' | 'fact' | 'month'
+    | 'lot' | 'right' | 'study' | 'book' | 'eye' | 'job' | 'word' | 'business' | 'issue' | 'side'
+    | 'kind' | 'head' | 'house' | 'service' | 'friend' | 'father' | 'power' | 'hour' | 'game' | 'line'
+    | 'end' | 'member' | 'law' | 'car' | 'city' | 'community' | 'name' | 'president' | 'team' | 'minute'
+    | 'idea' | 'kid' | 'body' | 'information' | 'back' | 'parent' | 'face' | 'others' | 'level' | 'office'
+    | 'door' | 'health' | 'person' | 'art' | 'war' | 'history' | 'party' | 'result' | 'change' | 'morning'
+    | 'reason' | 'research' | 'girl' | 'guy' | 'moment' | 'air' | 'teacher' | 'force' | 'education' | 'policy'
+    | 'city' | 'side' | 'home' | 'hour' | 'body' | 'year' | 'job' | 'music' | 'place' | 'water'
+    | 'room' | 'area' | 'money' | 'story' | 'fact' | 'lot' | 'question' | 'week' | 'company' | 'system'
+    | 'program' | 'information' | 'government' | 'issue' | 'hand' | 'part' | 'kind' | 'child' | 'problem'
+    | 'example' | 'fact' | 'development' | 'group' | 'member' | 'number' | 'man' | 'woman' | 'people' | 'girl'
+    | 'boy' | 'dog' | 'cat' | 'house' | 'car' | 'tree' | 'flower' | 'bird' | 'fish' | 'park'
+    | 'apple' | 'banana' | 'orange' | 'grape' | 'strawberry'
+    ;
 
-INDEFINITE_ADJECTIVES: 'some' | 'several' | 'any' | 'another' | 'each' | 'every' | 'none' | 'much' | 'little' | 'enough' | 'quite' | 'too many' | 'too few';
-
-NUMERAL_ADJECTIVES: CARDINAL_NUMBER | NUMERICAL_ORDINAL;
-
-CARDINAL_NUMBER: 'zero' | 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven' | 'eight' | 'nine' | 'ten' | 'eleven' | 'twelve' | 'thirteen' | 'fourteen' | 'fifteen' | 'sixteen' | 'seventeen' | 'eighteen' | 'nineteen' | 'twenty' | 'thirty' | 'forty' | 'fifty' | 'sixty' | 'seventy' | 'eighty' | 'ninety' | 'hundred' | 'thousand' | 'million';
-
-NUMERICAL_ORDINAL:'first' | 'second' | 'third' | 'fourth' | 'fifth' | 'sixth' | 'seventh' | 'eighth' | 'ninth' | 'tenth' | 'eleventh' | 'twelfth' | 'thirteenth' | 'fourteenth' | 'fifteenth' | 'sixteenth' | 'seventeenth' | 'eighteenth' | 'nineteenth' | 'twentieth' | 'thirtieth' | 'fortieth' | 'fiftieth' | 'sixtieth' | 'seventieth' | 'eightieth' | 'ninetieth' | 'hundredth' | 'thousandth' | 'millionth';
-//ADJETIVOS
-ARTICLE: 'the' | 'a' | 'an' | 'some' | 'any' | 'no' | 'every';
-VERB: 'run' | 'jump' | 'fly' | 'is';
-PREPOSITION: 'in' | 'on' | 'at' | 'over' | 'by';
-ADVERB: 'quickly' | 'slowly' | 'gracefully';
-POSSESSIVE_PRONOUN: 'my' | 'your' | 'his' | 'her';
-NUMERAL: 'one' | 'two' | 'three' | 'four';
-PUNCTUATION: '.' | ',' | ';';
-
+PRONOUN
+    :   'I' | 'you' | 'he' | 'she' | 'it' | 'we' | 'they'
+    ;
 
 
-WS: [ \t\n\r]+ -> skip;
+VERB
+:   'to be' |'could'|'should'|'must'|'needs'|'need'|'wants'|'want'|'has'|'have'|'play'|'were'|'was'|'am'|'are'|'is'|'ran'|'eat'
+| 'run' | 'jump' | 'play' | 'sleep' | 'work' | 'read' | 'write' | 'talk' | 'walk'
+| 'think' | 'feel' | 'see' | 'hear' | 'smell' | 'taste' | 'run' | 'walk' | 'drive' | 'fly' | 'swim'
+| 'jump' | 'laugh' | 'cry' | 'scream' | 'shout' | 'whisper' | 'talk' | 'think' | 'feel' | 'see' | 'hear' | 'smell' | 'taste'
+| 'arrive' | 'assist' | 'attempt' | 'avoid' | 'begin' | 'blame' | 'borrow' | 'break' | 'build' | 'call' | 'carry'
+| 'change' | 'choose' | 'come' | 'continue' | 'cook' | 'correct' | 'create' | 'decide' | 'describe' | 'deserve'
+| 'destroy' | 'develop' | 'discover' | 'do' | 'draw' | 'drop' | 'eat' | 'explain' | 'fail' | 'feel'
+| 'find' | 'finish' | 'forget' | 'forgive' | 'go' | 'grow' | 'help' | 'hide' | 'imagine' | 'include'
+| 'inform' | 'interest' | 'join' | 'keep' | 'know' | 'leave' | 'learn' | 'like' | 'listen' | 'lose'
+| 'make' | 'manage' | 'mean' | 'meet' | 'miss' | 'move' | 'need' | 'notice' | 'open' | 'order'
+| 'own' | 'pass' | 'pay' | 'plan' | 'play' | 'point' | 'prepare' | 'provide' | 'reach' | 'receive'
+| 'refuse' | 'remember' | 'repeat' | 'report' | 'request' | 'rest' | 'return' | 'save' | 'say' | 'see'
+| 'sell' | 'send' | 'set' | 'show' | 'sign' | 'sleep' | 'smile' | 'spend' | 'start' | 'stay'
+| 'stop' | 'take' | 'talk' | 'taste' | 'think' | 'teach' | 'tell' | 'think' | 'try' | 'turn'
+| 'understand' | 'use' | 'visit' | 'wait' | 'walk' | 'want' | 'watch' | 'work' | 'write'
+;
+ADVERB
+:   'quickly' | 'slowly' | 'carefully' | 'happily' | 'sadly' | 'often' | 'never' | 'always'
+| 'sometimes' | 'yesterday' | 'today' | 'tomorrow' | 'now' | 'then'| 'nearly' | 'exactly' | 'precisely'
+| 'completely' | 'partially' | 'frequently' | 'rarely' | 'occasionally'| 'annually' | 'daily' | 'weekly' | 'monthly' | 'yearly';
+PREPOSITION
+    :   'in' | 'on' | 'at' | 'to' | 'from' | 'with' | 'without' | 'near' | 'far' | 'above'
+    | 'below' | 'inside' | 'outside'
+    ;
+CONJUNCTION
+
+    :   'and' | 'or' | 'but'|'yet'|'so'|'for'|'because'|'if'|'unless'
+    ;
+
+
+INTERJECTION
+    :   'wow' | 'uh-oh' | 'hello' | 'goodbye' | 'yay' | 'boo' | 'ouch' | 'hmm'
+    ;
+
+PUNCTUATION
+    :  ','|'?'|'.'|'!'|';'|':';
+
+// Regla para ignorar los espacios en blanco
+WS : [ \t\r\n]+ -> skip;

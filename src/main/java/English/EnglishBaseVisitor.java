@@ -1,4 +1,4 @@
-// Generated from C:/Users/georg/IdeaProjects/TigreTranslator/src\English.g4 by ANTLR 4.12.0
+// Generated from C:/Users/click/Documents/JS_Scripts/TigreTranslator/src\English.g4 by ANTLR 4.12.0
 package English;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
@@ -46,12 +46,19 @@ public class EnglishBaseVisitor<T> extends AbstractParseTreeVisitor<T> implement
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAdverbPhrase(EnglishParser.AdverbPhraseContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPrepositionalPhrase(EnglishParser.PrepositionalPhraseContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPrepositionalPhrase(EnglishParser.PrepositionalPhraseContext ctx) { return visitChildren(ctx); }
+	@Override public T visitConjunctionPhrase(EnglishParser.ConjunctionPhraseContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitInterjectionPhrase(EnglishParser.InterjectionPhraseContext ctx) { return visitChildren(ctx); }
 }

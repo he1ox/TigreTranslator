@@ -6,7 +6,7 @@
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/src/English.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="C:\Users\georg\IdeaProjects\TigreTranslator\src\main\java" />
+          <option name="outputDir" value="C:\Users\click\Documents\JS_Scripts\TigreTranslator\src\main\java" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
           <option name="pkg" value="English" />
@@ -16,7 +16,7 @@
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/src/Spanish.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="C:\Users\georg\IdeaProjects\TigreTranslator\src\main\java" />
+          <option name="outputDir" value="C:\Users\click\Documents\JS_Scripts\TigreTranslator\src\main\java" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
           <option name="pkg" value="Spanish" />

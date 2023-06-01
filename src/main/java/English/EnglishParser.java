@@ -1,4 +1,4 @@
-// Generated from C:/Users/georg/IdeaProjects/TigreTranslator/src\English.g4 by ANTLR 4.12.0
+// Generated from C:/Users/click/Documents/JS_Scripts/TigreTranslator/src\English.g4 by ANTLR 4.12.0
 package English;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -17,14 +17,16 @@ public class EnglishParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		ARTICLE=1, ADJECTIVE=2, NOUN=3, VERB=4, PREPOSITION=5, ADVERB=6, POSSESSIVE_PRONOUN=7, 
-		NUMERAL=8, PUNCTUATION=9, WS=10;
+		DETERM=1, ARTICLE=2, POSSESSIVE_PRONOUN=3, ADJETIVE=4, NUMERAL=5, NOUN=6, 
+		PRONOUN=7, VERB=8, ADVERB=9, PREPOSITION=10, CONJUNCTION=11, INTERJECTION=12, 
+		PUNCTUATION=13, WS=14;
 	public static final int
 		RULE_sentence = 0, RULE_phrase = 1, RULE_nounPhrase = 2, RULE_verbPhrase = 3, 
-		RULE_adverbPhrase = 4, RULE_prepositionalPhrase = 5;
+		RULE_prepositionalPhrase = 4, RULE_conjunctionPhrase = 5, RULE_interjectionPhrase = 6;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"sentence", "phrase", "nounPhrase", "verbPhrase", "adverbPhrase", "prepositionalPhrase"
+			"sentence", "phrase", "nounPhrase", "verbPhrase", "prepositionalPhrase", 
+			"conjunctionPhrase", "interjectionPhrase"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -36,8 +38,9 @@ public class EnglishParser extends Parser {
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "ARTICLE", "ADJECTIVE", "NOUN", "VERB", "PREPOSITION", "ADVERB", 
-			"POSSESSIVE_PRONOUN", "NUMERAL", "PUNCTUATION", "WS"
+			null, "DETERM", "ARTICLE", "POSSESSIVE_PRONOUN", "ADJETIVE", "NUMERAL", 
+			"NOUN", "PRONOUN", "VERB", "ADVERB", "PREPOSITION", "CONJUNCTION", "INTERJECTION", 
+			"PUNCTUATION", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -130,33 +133,33 @@ public class EnglishParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(20);
+			setState(22);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 446L) != 0)) {
+			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
+			case 1:
 				{
-				setState(12);
+				setState(14);
 				phrase();
-				setState(17);
+				setState(19);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==PUNCTUATION) {
 					{
 					{
-					setState(13);
+					setState(15);
 					match(PUNCTUATION);
-					setState(14);
+					setState(16);
 					phrase();
 					}
 					}
-					setState(19);
+					setState(21);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
 				}
+				break;
 			}
-
-			setState(22);
+			setState(24);
 			match(EOF);
 			}
 		}
@@ -191,6 +194,18 @@ public class EnglishParser extends Parser {
 		public PrepositionalPhraseContext prepositionalPhrase(int i) {
 			return getRuleContext(PrepositionalPhraseContext.class,i);
 		}
+		public List<ConjunctionPhraseContext> conjunctionPhrase() {
+			return getRuleContexts(ConjunctionPhraseContext.class);
+		}
+		public ConjunctionPhraseContext conjunctionPhrase(int i) {
+			return getRuleContext(ConjunctionPhraseContext.class,i);
+		}
+		public List<InterjectionPhraseContext> interjectionPhrase() {
+			return getRuleContexts(InterjectionPhraseContext.class);
+		}
+		public InterjectionPhraseContext interjectionPhrase(int i) {
+			return getRuleContext(InterjectionPhraseContext.class,i);
+		}
 		public PhraseContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -213,48 +228,56 @@ public class EnglishParser extends Parser {
 	public final PhraseContext phrase() throws RecognitionException {
 		PhraseContext _localctx = new PhraseContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_phrase);
-		int _la;
 		try {
+			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(27); 
+			setState(33);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			do {
-				{
-				setState(27);
-				_errHandler.sync(this);
-				switch (_input.LA(1)) {
-				case ARTICLE:
-				case ADJECTIVE:
-				case NOUN:
-				case POSSESSIVE_PRONOUN:
-				case NUMERAL:
+			_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
 					{
-					setState(24);
-					nounPhrase();
+					setState(31);
+					_errHandler.sync(this);
+					switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
+					case 1:
+						{
+						setState(26);
+						nounPhrase();
+						}
+						break;
+					case 2:
+						{
+						setState(27);
+						verbPhrase();
+						}
+						break;
+					case 3:
+						{
+						setState(28);
+						prepositionalPhrase();
+						}
+						break;
+					case 4:
+						{
+						setState(29);
+						conjunctionPhrase();
+						}
+						break;
+					case 5:
+						{
+						setState(30);
+						interjectionPhrase();
+						}
+						break;
 					}
-					break;
-				case VERB:
-					{
-					setState(25);
-					verbPhrase();
-					}
-					break;
-				case PREPOSITION:
-					{
-					setState(26);
-					prepositionalPhrase();
-					}
-					break;
-				default:
-					throw new NoViableAltException(this);
+					} 
 				}
-				}
-				setState(29); 
+				setState(35);
 				_errHandler.sync(this);
-				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 446L) != 0) );
+				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -270,13 +293,31 @@ public class EnglishParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class NounPhraseContext extends ParserRuleContext {
-		public TerminalNode NOUN() { return getToken(EnglishParser.NOUN, 0); }
-		public TerminalNode ARTICLE() { return getToken(EnglishParser.ARTICLE, 0); }
-		public TerminalNode POSSESSIVE_PRONOUN() { return getToken(EnglishParser.POSSESSIVE_PRONOUN, 0); }
-		public List<TerminalNode> ADJECTIVE() { return getTokens(EnglishParser.ADJECTIVE); }
-		public TerminalNode ADJECTIVE(int i) {
-			return getToken(EnglishParser.ADJECTIVE, i);
+		public List<TerminalNode> ARTICLE() { return getTokens(EnglishParser.ARTICLE); }
+		public TerminalNode ARTICLE(int i) {
+			return getToken(EnglishParser.ARTICLE, i);
 		}
+		public TerminalNode PUNCTUATION() { return getToken(EnglishParser.PUNCTUATION, 0); }
+		public List<TerminalNode> ADJETIVE() { return getTokens(EnglishParser.ADJETIVE); }
+		public TerminalNode ADJETIVE(int i) {
+			return getToken(EnglishParser.ADJETIVE, i);
+		}
+		public TerminalNode ADVERB() { return getToken(EnglishParser.ADVERB, 0); }
+		public List<TerminalNode> VERB() { return getTokens(EnglishParser.VERB); }
+		public TerminalNode VERB(int i) {
+			return getToken(EnglishParser.VERB, i);
+		}
+		public TerminalNode PREPOSITION() { return getToken(EnglishParser.PREPOSITION, 0); }
+		public PrepositionalPhraseContext prepositionalPhrase() {
+			return getRuleContext(PrepositionalPhraseContext.class,0);
+		}
+		public List<TerminalNode> NOUN() { return getTokens(EnglishParser.NOUN); }
+		public TerminalNode NOUN(int i) {
+			return getToken(EnglishParser.NOUN, i);
+		}
+		public TerminalNode DETERM() { return getToken(EnglishParser.DETERM, 0); }
+		public TerminalNode POSSESSIVE_PRONOUN() { return getToken(EnglishParser.POSSESSIVE_PRONOUN, 0); }
+		public TerminalNode PRONOUN() { return getToken(EnglishParser.PRONOUN, 0); }
 		public List<TerminalNode> NUMERAL() { return getTokens(EnglishParser.NUMERAL); }
 		public TerminalNode NUMERAL(int i) {
 			return getToken(EnglishParser.NUMERAL, i);
@@ -305,16 +346,17 @@ public class EnglishParser extends Parser {
 		enterRule(_localctx, 4, RULE_nounPhrase);
 		int _la;
 		try {
+			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(32);
+			setState(37);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==ARTICLE || _la==POSSESSIVE_PRONOUN) {
+			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
+			case 1:
 				{
-				setState(31);
+				setState(36);
 				_la = _input.LA(1);
-				if ( !(_la==ARTICLE || _la==POSSESSIVE_PRONOUN) ) {
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 174L) != 0)) ) {
 				_errHandler.recoverInline(this);
 				}
 				else {
@@ -322,33 +364,123 @@ public class EnglishParser extends Parser {
 					_errHandler.reportMatch(this);
 					consume();
 				}
+				}
+				break;
+			}
+			setState(42);
+			_errHandler.sync(this);
+			_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
+					{
+					{
+					setState(39);
+					_la = _input.LA(1);
+					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 304L) != 0)) ) {
+					_errHandler.recoverInline(this);
+					}
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
+						consume();
+					}
+					}
+					} 
+				}
+				setState(44);
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
+			}
+			setState(46);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==ARTICLE) {
+				{
+				setState(45);
+				match(ARTICLE);
 				}
 			}
 
-			setState(37);
+			setState(49);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==ADJECTIVE || _la==NUMERAL) {
+			if (_la==PUNCTUATION) {
 				{
-				{
-				setState(34);
-				_la = _input.LA(1);
-				if ( !(_la==ADJECTIVE || _la==NUMERAL) ) {
-				_errHandler.recoverInline(this);
+				setState(48);
+				match(PUNCTUATION);
 				}
-				else {
-					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-					_errHandler.reportMatch(this);
-					consume();
-				}
-				}
-				}
-				setState(39);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
 			}
-			setState(40);
-			match(NOUN);
+
+			setState(52);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==ADJETIVE) {
+				{
+				setState(51);
+				match(ADJETIVE);
+				}
+			}
+
+			setState(55);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==ADVERB) {
+				{
+				setState(54);
+				match(ADVERB);
+				}
+			}
+
+			setState(58);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==VERB) {
+				{
+				setState(57);
+				match(VERB);
+				}
+			}
+
+			setState(61);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {
+			case 1:
+				{
+				setState(60);
+				match(PREPOSITION);
+				}
+				break;
+			}
+			setState(64);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==PREPOSITION) {
+				{
+				setState(63);
+				prepositionalPhrase();
+				}
+			}
+
+			setState(67); 
+			_errHandler.sync(this);
+			_alt = 1;
+			do {
+				switch (_alt) {
+				case 1:
+					{
+					{
+					setState(66);
+					match(NOUN);
+					}
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
+				}
+				setState(69); 
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,13,_ctx);
+			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 			}
 		}
 		catch (RecognitionException re) {
@@ -401,26 +533,26 @@ public class EnglishParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(42);
+			setState(71);
 			match(VERB);
-			setState(47);
+			setState(76);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,15,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
-					setState(45);
+					setState(74);
 					_errHandler.sync(this);
 					switch (_input.LA(1)) {
 					case ADVERB:
 						{
-						setState(43);
+						setState(72);
 						match(ADVERB);
 						}
 						break;
 					case PREPOSITION:
 						{
-						setState(44);
+						setState(73);
 						prepositionalPhrase();
 						}
 						break;
@@ -429,53 +561,10 @@ public class EnglishParser extends Parser {
 					}
 					} 
 				}
-				setState(49);
+				setState(78);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,15,_ctx);
 			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class AdverbPhraseContext extends ParserRuleContext {
-		public TerminalNode ADVERB() { return getToken(EnglishParser.ADVERB, 0); }
-		public AdverbPhraseContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_adverbPhrase; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).enterAdverbPhrase(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).exitAdverbPhrase(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EnglishVisitor ) return ((EnglishVisitor<? extends T>)visitor).visitAdverbPhrase(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final AdverbPhraseContext adverbPhrase() throws RecognitionException {
-		AdverbPhraseContext _localctx = new AdverbPhraseContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_adverbPhrase);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(50);
-			match(ADVERB);
 			}
 		}
 		catch (RecognitionException re) {
@@ -516,13 +605,13 @@ public class EnglishParser extends Parser {
 
 	public final PrepositionalPhraseContext prepositionalPhrase() throws RecognitionException {
 		PrepositionalPhraseContext _localctx = new PrepositionalPhraseContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_prepositionalPhrase);
+		enterRule(_localctx, 8, RULE_prepositionalPhrase);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(52);
+			setState(79);
 			match(PREPOSITION);
-			setState(53);
+			setState(80);
 			nounPhrase();
 			}
 		}
@@ -537,44 +626,154 @@ public class EnglishParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
+	public static class ConjunctionPhraseContext extends ParserRuleContext {
+		public TerminalNode CONJUNCTION() { return getToken(EnglishParser.CONJUNCTION, 0); }
+		public PhraseContext phrase() {
+			return getRuleContext(PhraseContext.class,0);
+		}
+		public ConjunctionPhraseContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_conjunctionPhrase; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).enterConjunctionPhrase(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).exitConjunctionPhrase(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof EnglishVisitor ) return ((EnglishVisitor<? extends T>)visitor).visitConjunctionPhrase(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final ConjunctionPhraseContext conjunctionPhrase() throws RecognitionException {
+		ConjunctionPhraseContext _localctx = new ConjunctionPhraseContext(_ctx, getState());
+		enterRule(_localctx, 10, RULE_conjunctionPhrase);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(82);
+			match(CONJUNCTION);
+			setState(83);
+			phrase();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class InterjectionPhraseContext extends ParserRuleContext {
+		public TerminalNode INTERJECTION() { return getToken(EnglishParser.INTERJECTION, 0); }
+		public InterjectionPhraseContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_interjectionPhrase; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).enterInterjectionPhrase(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).exitInterjectionPhrase(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof EnglishVisitor ) return ((EnglishVisitor<? extends T>)visitor).visitInterjectionPhrase(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final InterjectionPhraseContext interjectionPhrase() throws RecognitionException {
+		InterjectionPhraseContext _localctx = new InterjectionPhraseContext(_ctx, getState());
+		enterRule(_localctx, 12, RULE_interjectionPhrase);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(85);
+			match(INTERJECTION);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
 	public static final String _serializedATN =
-		"\u0004\u0001\n8\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0004\u0001\u000eX\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
-		"\u0005\u0007\u0005\u0001\u0000\u0001\u0000\u0001\u0000\u0005\u0000\u0010"+
-		"\b\u0000\n\u0000\f\u0000\u0013\t\u0000\u0003\u0000\u0015\b\u0000\u0001"+
-		"\u0000\u0001\u0000\u0001\u0001\u0001\u0001\u0001\u0001\u0004\u0001\u001c"+
-		"\b\u0001\u000b\u0001\f\u0001\u001d\u0001\u0002\u0003\u0002!\b\u0002\u0001"+
-		"\u0002\u0005\u0002$\b\u0002\n\u0002\f\u0002\'\t\u0002\u0001\u0002\u0001"+
-		"\u0002\u0001\u0003\u0001\u0003\u0001\u0003\u0005\u0003.\b\u0003\n\u0003"+
-		"\f\u00031\t\u0003\u0001\u0004\u0001\u0004\u0001\u0005\u0001\u0005\u0001"+
-		"\u0005\u0001\u0005\u0000\u0000\u0006\u0000\u0002\u0004\u0006\b\n\u0000"+
-		"\u0002\u0002\u0000\u0001\u0001\u0007\u0007\u0002\u0000\u0002\u0002\b\b"+
-		":\u0000\u0014\u0001\u0000\u0000\u0000\u0002\u001b\u0001\u0000\u0000\u0000"+
-		"\u0004 \u0001\u0000\u0000\u0000\u0006*\u0001\u0000\u0000\u0000\b2\u0001"+
-		"\u0000\u0000\u0000\n4\u0001\u0000\u0000\u0000\f\u0011\u0003\u0002\u0001"+
-		"\u0000\r\u000e\u0005\t\u0000\u0000\u000e\u0010\u0003\u0002\u0001\u0000"+
-		"\u000f\r\u0001\u0000\u0000\u0000\u0010\u0013\u0001\u0000\u0000\u0000\u0011"+
-		"\u000f\u0001\u0000\u0000\u0000\u0011\u0012\u0001\u0000\u0000\u0000\u0012"+
-		"\u0015\u0001\u0000\u0000\u0000\u0013\u0011\u0001\u0000\u0000\u0000\u0014"+
-		"\f\u0001\u0000\u0000\u0000\u0014\u0015\u0001\u0000\u0000\u0000\u0015\u0016"+
-		"\u0001\u0000\u0000\u0000\u0016\u0017\u0005\u0000\u0000\u0001\u0017\u0001"+
-		"\u0001\u0000\u0000\u0000\u0018\u001c\u0003\u0004\u0002\u0000\u0019\u001c"+
-		"\u0003\u0006\u0003\u0000\u001a\u001c\u0003\n\u0005\u0000\u001b\u0018\u0001"+
-		"\u0000\u0000\u0000\u001b\u0019\u0001\u0000\u0000\u0000\u001b\u001a\u0001"+
-		"\u0000\u0000\u0000\u001c\u001d\u0001\u0000\u0000\u0000\u001d\u001b\u0001"+
-		"\u0000\u0000\u0000\u001d\u001e\u0001\u0000\u0000\u0000\u001e\u0003\u0001"+
-		"\u0000\u0000\u0000\u001f!\u0007\u0000\u0000\u0000 \u001f\u0001\u0000\u0000"+
-		"\u0000 !\u0001\u0000\u0000\u0000!%\u0001\u0000\u0000\u0000\"$\u0007\u0001"+
-		"\u0000\u0000#\"\u0001\u0000\u0000\u0000$\'\u0001\u0000\u0000\u0000%#\u0001"+
-		"\u0000\u0000\u0000%&\u0001\u0000\u0000\u0000&(\u0001\u0000\u0000\u0000"+
-		"\'%\u0001\u0000\u0000\u0000()\u0005\u0003\u0000\u0000)\u0005\u0001\u0000"+
-		"\u0000\u0000*/\u0005\u0004\u0000\u0000+.\u0005\u0006\u0000\u0000,.\u0003"+
-		"\n\u0005\u0000-+\u0001\u0000\u0000\u0000-,\u0001\u0000\u0000\u0000.1\u0001"+
-		"\u0000\u0000\u0000/-\u0001\u0000\u0000\u0000/0\u0001\u0000\u0000\u0000"+
-		"0\u0007\u0001\u0000\u0000\u00001/\u0001\u0000\u0000\u000023\u0005\u0006"+
-		"\u0000\u00003\t\u0001\u0000\u0000\u000045\u0005\u0005\u0000\u000056\u0003"+
-		"\u0004\u0002\u00006\u000b\u0001\u0000\u0000\u0000\b\u0011\u0014\u001b"+
-		"\u001d %-/";
+		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0001\u0000\u0001\u0000\u0001"+
+		"\u0000\u0005\u0000\u0012\b\u0000\n\u0000\f\u0000\u0015\t\u0000\u0003\u0000"+
+		"\u0017\b\u0000\u0001\u0000\u0001\u0000\u0001\u0001\u0001\u0001\u0001\u0001"+
+		"\u0001\u0001\u0001\u0001\u0005\u0001 \b\u0001\n\u0001\f\u0001#\t\u0001"+
+		"\u0001\u0002\u0003\u0002&\b\u0002\u0001\u0002\u0005\u0002)\b\u0002\n\u0002"+
+		"\f\u0002,\t\u0002\u0001\u0002\u0003\u0002/\b\u0002\u0001\u0002\u0003\u0002"+
+		"2\b\u0002\u0001\u0002\u0003\u00025\b\u0002\u0001\u0002\u0003\u00028\b"+
+		"\u0002\u0001\u0002\u0003\u0002;\b\u0002\u0001\u0002\u0003\u0002>\b\u0002"+
+		"\u0001\u0002\u0003\u0002A\b\u0002\u0001\u0002\u0004\u0002D\b\u0002\u000b"+
+		"\u0002\f\u0002E\u0001\u0003\u0001\u0003\u0001\u0003\u0005\u0003K\b\u0003"+
+		"\n\u0003\f\u0003N\t\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0005"+
+		"\u0001\u0005\u0001\u0005\u0001\u0006\u0001\u0006\u0001\u0006\u0000\u0000"+
+		"\u0007\u0000\u0002\u0004\u0006\b\n\f\u0000\u0002\u0003\u0000\u0001\u0003"+
+		"\u0005\u0005\u0007\u0007\u0002\u0000\u0004\u0005\b\bc\u0000\u0016\u0001"+
+		"\u0000\u0000\u0000\u0002!\u0001\u0000\u0000\u0000\u0004%\u0001\u0000\u0000"+
+		"\u0000\u0006G\u0001\u0000\u0000\u0000\bO\u0001\u0000\u0000\u0000\nR\u0001"+
+		"\u0000\u0000\u0000\fU\u0001\u0000\u0000\u0000\u000e\u0013\u0003\u0002"+
+		"\u0001\u0000\u000f\u0010\u0005\r\u0000\u0000\u0010\u0012\u0003\u0002\u0001"+
+		"\u0000\u0011\u000f\u0001\u0000\u0000\u0000\u0012\u0015\u0001\u0000\u0000"+
+		"\u0000\u0013\u0011\u0001\u0000\u0000\u0000\u0013\u0014\u0001\u0000\u0000"+
+		"\u0000\u0014\u0017\u0001\u0000\u0000\u0000\u0015\u0013\u0001\u0000\u0000"+
+		"\u0000\u0016\u000e\u0001\u0000\u0000\u0000\u0016\u0017\u0001\u0000\u0000"+
+		"\u0000\u0017\u0018\u0001\u0000\u0000\u0000\u0018\u0019\u0005\u0000\u0000"+
+		"\u0001\u0019\u0001\u0001\u0000\u0000\u0000\u001a \u0003\u0004\u0002\u0000"+
+		"\u001b \u0003\u0006\u0003\u0000\u001c \u0003\b\u0004\u0000\u001d \u0003"+
+		"\n\u0005\u0000\u001e \u0003\f\u0006\u0000\u001f\u001a\u0001\u0000\u0000"+
+		"\u0000\u001f\u001b\u0001\u0000\u0000\u0000\u001f\u001c\u0001\u0000\u0000"+
+		"\u0000\u001f\u001d\u0001\u0000\u0000\u0000\u001f\u001e\u0001\u0000\u0000"+
+		"\u0000 #\u0001\u0000\u0000\u0000!\u001f\u0001\u0000\u0000\u0000!\"\u0001"+
+		"\u0000\u0000\u0000\"\u0003\u0001\u0000\u0000\u0000#!\u0001\u0000\u0000"+
+		"\u0000$&\u0007\u0000\u0000\u0000%$\u0001\u0000\u0000\u0000%&\u0001\u0000"+
+		"\u0000\u0000&*\u0001\u0000\u0000\u0000\')\u0007\u0001\u0000\u0000(\'\u0001"+
+		"\u0000\u0000\u0000),\u0001\u0000\u0000\u0000*(\u0001\u0000\u0000\u0000"+
+		"*+\u0001\u0000\u0000\u0000+.\u0001\u0000\u0000\u0000,*\u0001\u0000\u0000"+
+		"\u0000-/\u0005\u0002\u0000\u0000.-\u0001\u0000\u0000\u0000./\u0001\u0000"+
+		"\u0000\u0000/1\u0001\u0000\u0000\u000002\u0005\r\u0000\u000010\u0001\u0000"+
+		"\u0000\u000012\u0001\u0000\u0000\u000024\u0001\u0000\u0000\u000035\u0005"+
+		"\u0004\u0000\u000043\u0001\u0000\u0000\u000045\u0001\u0000\u0000\u0000"+
+		"57\u0001\u0000\u0000\u000068\u0005\t\u0000\u000076\u0001\u0000\u0000\u0000"+
+		"78\u0001\u0000\u0000\u00008:\u0001\u0000\u0000\u00009;\u0005\b\u0000\u0000"+
+		":9\u0001\u0000\u0000\u0000:;\u0001\u0000\u0000\u0000;=\u0001\u0000\u0000"+
+		"\u0000<>\u0005\n\u0000\u0000=<\u0001\u0000\u0000\u0000=>\u0001\u0000\u0000"+
+		"\u0000>@\u0001\u0000\u0000\u0000?A\u0003\b\u0004\u0000@?\u0001\u0000\u0000"+
+		"\u0000@A\u0001\u0000\u0000\u0000AC\u0001\u0000\u0000\u0000BD\u0005\u0006"+
+		"\u0000\u0000CB\u0001\u0000\u0000\u0000DE\u0001\u0000\u0000\u0000EC\u0001"+
+		"\u0000\u0000\u0000EF\u0001\u0000\u0000\u0000F\u0005\u0001\u0000\u0000"+
+		"\u0000GL\u0005\b\u0000\u0000HK\u0005\t\u0000\u0000IK\u0003\b\u0004\u0000"+
+		"JH\u0001\u0000\u0000\u0000JI\u0001\u0000\u0000\u0000KN\u0001\u0000\u0000"+
+		"\u0000LJ\u0001\u0000\u0000\u0000LM\u0001\u0000\u0000\u0000M\u0007\u0001"+
+		"\u0000\u0000\u0000NL\u0001\u0000\u0000\u0000OP\u0005\n\u0000\u0000PQ\u0003"+
+		"\u0004\u0002\u0000Q\t\u0001\u0000\u0000\u0000RS\u0005\u000b\u0000\u0000"+
+		"ST\u0003\u0002\u0001\u0000T\u000b\u0001\u0000\u0000\u0000UV\u0005\f\u0000"+
+		"\u0000V\r\u0001\u0000\u0000\u0000\u0010\u0013\u0016\u001f!%*.147:=@EJ"+
+		"L";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -1,4 +1,4 @@
-// Generated from C:/Users/georg/IdeaProjects/TigreTranslator/src\English.g4 by ANTLR 4.12.0
+// Generated from C:/Users/click/Documents/JS_Scripts/TigreTranslator/src\English.g4 by ANTLR 4.12.0
 package English;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -35,15 +35,21 @@ public interface EnglishVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVerbPhrase(EnglishParser.VerbPhraseContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link EnglishParser#adverbPhrase}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAdverbPhrase(EnglishParser.AdverbPhraseContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link EnglishParser#prepositionalPhrase}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitPrepositionalPhrase(EnglishParser.PrepositionalPhraseContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link EnglishParser#conjunctionPhrase}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConjunctionPhrase(EnglishParser.ConjunctionPhraseContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link EnglishParser#interjectionPhrase}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInterjectionPhrase(EnglishParser.InterjectionPhraseContext ctx);
 }
