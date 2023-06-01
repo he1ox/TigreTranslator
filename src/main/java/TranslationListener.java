@@ -19,7 +19,7 @@ public class TranslationListener extends EnglishBaseListener {
             return;
         }
 
-        String translatedWord = symbolTable.translate(word);
+        String translatedWord = symbolTable.translateInverse(word);
         translatedText.append(translatedWord).append(" ");
     }
 

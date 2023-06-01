@@ -18,9 +18,9 @@ public class SpanishToEnglishListener extends SpanishBaseListener {
         if (word.equals("<EOF>") || word.equals("¿") || word.equals("¡")) {
             return;
         }
-
-        String translatedWord = symbolTable.translateInverse(word);
+        String translatedWord = symbolTable.translate(word);
         translatedText.append(translatedWord).append(" ");
+
     }
 
     public String getTranslatedText() {
