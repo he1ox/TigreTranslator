@@ -162,18 +162,28 @@ public class TranslatorGUI {
                     String translatedText = translator.translate(inputText, fromEnglishToSpanish);
                     outputTextArea.setText(translatedText);
 
+                    // Limpieza del panel antes de agregar las tablas
+                    middlePanel.removeAll();
+                    middlePanel.revalidate();
+                    middlePanel.repaint();
+
                     // Carga de datos y mostrarlos en la tabla
                     allErrors = translator.allErrors();
                     allTokens = translator.returnTokens();
                     tables.addTableTokens(middlePanel,allTokens,"Token","Information");
-                    tables.addTableErrors(middlePanel,allErrors,"Error","Message");
+                    tables.addTableErrors(middlePanel,allErrors,"Error","Message");;
 
                 }
                 else if (isSpanishSelected){
                     boolean fromEnglishToSpanish = false; // Cambie este valor según el idioma de entrada deseado
                     String translatedText = translator.translate(inputText, fromEnglishToSpanish);
-                    outputTextArea.setText(translatedText + "\n" + TigreAI.ejemploDeUso(translatedText));
-                    
+                    outputTextArea.setText(translatedText + "\n" + TigreAI.explicacion(translatedText));
+
+                    // Limpieza del panel antes de agregar las tablas
+                    middlePanel.removeAll();
+                    middlePanel.revalidate();
+                    middlePanel.repaint();
+
                     // Carga de datos y mostrarlos en la tabla
                     allErrors = translator.allErrors();
                     allTokens = translator.returnTokens();

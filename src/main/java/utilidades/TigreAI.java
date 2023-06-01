@@ -16,8 +16,8 @@ public class TigreAI {
     public static void main(String[] args) throws Exception {
         //ejemploDeUso("the big cat");
         //System.out.println(explicacion("the cat big"));
-        System.out.println(arreglarGramatica("the cat big"));
-        System.out.println(ejemploDeUso(arreglarGramatica("the cat big")));
+        //System.out.println(arreglarGramatica("the cat big"));
+        System.out.println(explicacion("the cat big"));
     }
 
     public static String arreglarGramatica(String frasePalabra){
@@ -51,10 +51,9 @@ public class TigreAI {
 
     public static String explicacion(String frasePalabra){
 
-        String frase = arreglarGramatica(frasePalabra);
         String ejemplo = "";
 
-        String messageContent = "Estoy aprendiendo ingles. Explica de forma breve la siguiente frase o palabra'"+frase+"'";
+        String messageContent = "A partir de ahora eres mi maestro de inglés. Explicame de forma breve la siguiente oracion o palabra: "+frasePalabra+"";
 
         JSONObject requestBody = new JSONObject();
         JSONArray messagesArray = new JSONArray();
@@ -81,10 +80,9 @@ public class TigreAI {
     }
 
     public static String ejemploDeUso(String frasePalabra){
-        String frase = arreglarGramatica(frasePalabra);
         String ejemplo = "";
 
-        String messageContent = "Explica la frase o palabra y solo dame un ejemplo breve de su uso '"+frase+"' en la vida real";
+        String messageContent = "Explica la frase o palabra y solo dame un ejemplo breve de su uso '"+frasePalabra+"' en la vida real. Si reconoces que la frase es muy corta o en este caso puede ser gramaticalmente incorrecta, por ejemplo 'the cat big' , tu la reconocerias automaticamente como 'The big cat.' es decir, corrigela tras banbalinas sin mencionar que es gramaticalmente incorrecta.Tu respuesta debe empezar estrictamente como, es decir, la primera linea de tu respuesta.Ejemplo 1 Usuario: Explica la frase o palabra y solo dame un ejemplo breve de su uso 'the cat big' en la vida real.Respuesta: La frase 'The big cat' se refiere a un gato que es grande en tamaño.Ejemplo de uso: A: 'Have you seen our neighbor's new cat?' B: 'Yes, it's huge - the big cat is always in her yard!' Ejemplo 2 Usuario: Explica la frase o palabra y solo dame un ejemplo breve de su uso 'the dog big' en la vida real.Respuesta: La frase 'The big dog.' se refiere a un gato que es grande en tamaño. Ejemplo de uso...";
 
         JSONObject requestBody = new JSONObject();
         JSONArray messagesArray = new JSONArray();
