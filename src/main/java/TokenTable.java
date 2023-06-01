@@ -36,6 +36,7 @@ public class TokenTable {
                 case EnglishLexer.CONJUNCTION -> "Cojunction coordination";
                 default -> "Otro";
             };
+            System.out.println("ok");
             symbols.put("Token: " + tokenText," [(Tipo: " + tokenCategory + "),"+"Line(" + line + "), posición(" + charPositionInLine+")]");
             tokens.consume(); // Avanza al siguiente token
             token = tokens.LT(1); // Obtiene el siguiente token
