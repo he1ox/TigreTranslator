@@ -10,4 +10,4 @@ TigreTranslator es un potente traductor de lenguaje natural construido utilizand
 - Tabla de Errores: Registra y categoriza cualquier problema identificado durante el análisis.
 - Interfaz de usuario: Permite al usuario ingresar texto directamente o subir un archivo .txt para su traducción.
 
-![XLExRXin4Epv5GjL2Q3yW8e0Gk0YW00RaGmtRbQyTK2OHmfBdY2bowUeTE7Adt0_bkNntfAHvd37dLdEpiv54ot10tjDmKD1i6CiAgrD_U6KGXqzmsEea8rNUt-2HQxByK81792ZqUQ0Bi9YGoTY-B9sQCqVB8IugTzEHlkl2y00JNdEUK0ECzBMk5XVTEo96NEJkMEY9xIlgSKlqfxP56](https://github.com/he1ox/TigreTranslator/assets/68780219/42746b01-dd61-43c4-bb52-846600b5a7da)
+![XLExRXin4Epv5GjL2Q3yW8e0Gk0YW00RaGmtRbQyTK2OHmfBdY2bowUeTE7Adt0_bkNntfAHvd37dLdEpiv54ot10tjDmKD1i6CiAgrD_U6KGXqzmsEea8rNUt-2HQxByK81792ZqUQ0Bi9YGoTY-B9sQCqVB8IugTzEHlkl2y00JNdEUK0ECzBMk5XVTEo96NEJkMEY9xIlgSKlqfxP56](https://github.com/he1ox/TigreTranslator/assets/68780219/aa33f8f8-ecf4-4120-9af0-84aea0e37ab9)
