@@ -1,4 +1,4 @@
-// Generated from C:/Users/click/Documents/JS_Scripts/TigreTranslator/src\Spanish.g4 by ANTLR 4.12.0
+// Generated from C:/Users/georg/IdeaProjects/TigreTranslator/src\Spanish.g4 by ANTLR 4.12.0
 package Spanish;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 

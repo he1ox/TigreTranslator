@@ -113,11 +113,16 @@ public class TranslatorGUI {
             public void actionPerformed(ActionEvent e) {
 
                 if (isSpanishSelected){
-                    boolean fromEnglishToSpanish = false;
                     try {
-                        String textoTraducido = translator.translate(inputTextArea.getText(), fromEnglishToSpanish);
-                        TextToSpeech.reproducirVoz(TigreAI.explicacion(textoTraducido),"español");
+                        TextToSpeech.reproducirVoz(TigreAI.explicacion(outputTextArea.getText()),"español");
                     } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
+                } else if (isEnglishSelected) {
+                    try {
+
+                        TextToSpeech.reproducirVoz(TigreAI.explicacion(outputTextArea.getText()),"español");
+                    } catch (Exception ex){
                         throw new RuntimeException(ex);
                     }
                 }
@@ -133,15 +138,14 @@ public class TranslatorGUI {
                 if (isEnglishSelected){
                     boolean fromEnglishToSpanish = true;
                     try {
-                        String textoTraducido = translator.translate(inputTextArea.getText(), fromEnglishToSpanish);
-                        TextToSpeech.reproducirVoz(textoTraducido, "español");
+                        TextToSpeech.reproducirVoz(outputTextArea.getText(), "english");
                     } catch (Exception ex) {
                         throw new RuntimeException(ex);
                     }
                 } else if (isSpanishSelected){
                     boolean fromEnglishToSpanish = false;
                     try {
-                        TextToSpeech.reproducirVoz(translator.translate(inputTextArea.getText(), fromEnglishToSpanish), "english");
+                        TextToSpeech.reproducirVoz(outputTextArea.getText(), "español");
                     } catch (Exception ex) {
                         throw new RuntimeException(ex);
                     }
@@ -179,7 +183,18 @@ public class TranslatorGUI {
                 else if (isEnglishSelected){
                     boolean fromEnglishToSpanish = false; // Cambie este valor según el idioma de entrada deseado
                     String translatedText = translator.translate(inputText, fromEnglishToSpanish);
-                    outputTextArea.setText(translatedText + "\n" + TigreAI.explicacion(translatedText));
+
+                    outputTextArea.setText(translatedText);
+
+//                    Thread hiloExplicacionAI = new Thread(() -> {
+//                        TigreAI.explicacion(translatedText);
+//                    });
+//
+//                    hiloExplicacionAI.run();
+//
+//
+//                    outputTextArea.append("\n" + TigreAI.explicacion(translatedText));
+
 
                     // Limpieza del panel antes de agregar las tablas
                     middlePanel.removeAll();

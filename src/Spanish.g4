@@ -42,7 +42,7 @@ POSSESSIVE_PRONOUN
     ;
 
 ADJETIVE
-: 'hermosa'|'hermoso'|'delicioso' | 'grande' | 'pequeño' | 'alto' | 'bajo' | 'gordo'
+: 'hermosa'|'hermoso'|'delicioso' | 'grande' | 'pequeño' | 'alto' | 'bajo' | 'gordo' | 'dificil'
 | 'delgado' | 'feliz' | 'triste' | 'amigable' | 'mezquino'| 'nuevo' | 'viejo'
 | 'rojo' | 'azul' | 'verde' | 'amarillo' | 'negro' | 'blanco' | 'morado' | 'naranja'
 | 'inteligente' | 'gracioso' | 'valiente' | 'tímido' | 'perezoso' | 'limpio' | 'sucio'

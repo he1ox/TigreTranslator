@@ -1,6 +1,4 @@
 /src/main/java/utilidades/OpenAI.java
-/target/
+/target/classes
 /audio_generado
 /output.mp3
-/target/
-

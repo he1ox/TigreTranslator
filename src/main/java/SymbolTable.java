@@ -7,6 +7,9 @@ public class SymbolTable {
     public SymbolTable() {
         this.dictionary = new HashMap<>();
         dictionary.put("cada", "each");
+        dictionary.put("cada", "every");
+        dictionary.put("dificil","hard");
+
         dictionary.put("algunos", "some");
         dictionary.put("cualquier", "any");
 

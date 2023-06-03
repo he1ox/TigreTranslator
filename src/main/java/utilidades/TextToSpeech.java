@@ -24,14 +24,14 @@ public class TextToSpeech {
                  voice =
                     VoiceSelectionParams.newBuilder()
                             .setLanguageCode("en-US") // languageCode = "en_us"
-                            .setSsmlGender(SsmlVoiceGender.MALE) // ssmlVoiceGender = SsmlVoiceGender.FEMALE
+                            .setSsmlGender(SsmlVoiceGender.FEMALE) // ssmlVoiceGender = SsmlVoiceGender.FEMALE
                             .build();
             }else{
                 // Build the voice request
                  voice =
                     VoiceSelectionParams.newBuilder()
                             .setLanguageCode("es-US") // languageCode = "en_us"
-                            .setSsmlGender(SsmlVoiceGender.MALE) // ssmlVoiceGender = SsmlVoiceGender.FEMALE
+                            .setSsmlGender(SsmlVoiceGender.MALE) // ssmlVoiceGender = SsmlVoiceGender.MALE
                             .build();
             }
 
